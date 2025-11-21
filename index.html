@@ -11,10 +11,10 @@
         /* --- HIGH CONTRAST PALETTE --- */
         :root {
             --ferrari-red: #ff2800; 
-            --dark-bg: #121212; /* Solid matte black, no noise */
-            --card-bg: #1e1e1e; /* Slightly lighter for cards */
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
             --text-white: #ffffff;
-            --text-gray: #d0d0d0; /* Lightened for readability */
+            --text-gray: #d0d0d0;
         }
 
         body {
@@ -27,7 +27,7 @@
             min-height: 100vh;
         }
 
-        /* --- SIMPLIFIED HEADER --- */
+        /* --- HEADER --- */
         header {
             text-align: center;
             padding: 30px 20px;
@@ -35,7 +35,6 @@
             border-bottom: 2px solid var(--ferrari-red);
         }
 
-        /* F1 Lights - Kept but made smaller and cleaner */
         .f1-lights-container {
             display: flex;
             justify-content: center;
@@ -60,8 +59,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0;
-            color: #ffffff; /* Solid White for max contrast */
-            text-shadow: 2px 2px 0px #000; /* Simple shadow to pop off screen */
+            color: #ffffff;
+            text-shadow: 2px 2px 0px #000;
             line-height: 1;
         }
 
@@ -81,12 +80,12 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             display: inline-block;
-            border-radius: 4px; /* Removed skew for cleaner text */
+            border-radius: 4px;
             margin-top: 15px;
             border: 1px solid #555;
         }
 
-        /* --- TEACHER TABS (Clean & Tappable) --- */
+        /* --- TABS --- */
         .pit-wall-container {
             max-width: 600px;
             margin: 20px auto;
@@ -139,7 +138,7 @@
 
         .tab-content.active { display: block; animation: simpleFade 0.3s ease-in; }
 
-        /* --- TIMELINE (Readable Cards) --- */
+        /* --- AGENDA ITEMS --- */
         main {
             max-width: 800px;
             margin: 0 auto;
@@ -153,7 +152,7 @@
             top: 20px;
             bottom: 20px;
             width: 3px;
-            background: #333; /* Darker track line so it's not distracting */
+            background: #333;
             z-index: 0;
         }
 
@@ -161,7 +160,6 @@
             position: relative;
             margin-bottom: 25px;
             z-index: 1;
-            /* Simple Opacity Transition - NO BLUR */
             opacity: 0; 
             transform: translateY(20px); 
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -177,7 +175,7 @@
             border-radius: 8px;
             border-left: 5px solid var(--ferrari-red);
             padding: 20px;
-            margin-left: 25px; /* Space for the track line */
+            margin-left: 25px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
@@ -202,10 +200,23 @@
             line-height: 1.4;
         }
 
+        /* --- IMAGE STYLES --- */
+        .milestone-img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            border: 2px solid #333;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
         .location {
             color: #888;
             font-size: 0.85rem;
             font-style: italic;
+            margin-top: 10px;
         }
 
         @keyframes simpleFade { from { opacity: 0; } to { opacity: 1; } }
@@ -259,6 +270,10 @@
                 <div class="time-slot"><h3>07:30 AM</h3></div>
                 <div class="details-slot">
                     <h4>Departure</h4>
+                    
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Ferrara, Smiling IS</div>
                 </div>
             </div>
@@ -270,6 +285,10 @@
                 <div class="details-slot">
                     <h4>Maranello Experience</h4>
                     <p>Guided tour and aerodynamics workshop.</p>
+
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Ferrari Museum</div>
                 </div>
             </div>
@@ -281,6 +300,10 @@
                 <div class="details-slot">
                     <h4>Lunch Break</h4>
                     <p>Packed lunch stop.</p>
+
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Resistenza Park</div>
                 </div>
             </div>
@@ -292,6 +315,10 @@
                 <div class="details-slot">
                     <h4>Tasting Tour</h4>
                     <p>Acetaia Giusti traditional tour.</p>
+
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Modena</div>
                 </div>
             </div>
@@ -302,6 +329,10 @@
                 <div class="time-slot"><h3>04:00 PM</h3></div>
                 <div class="details-slot">
                     <h4>Return Journey</h4>
+                    
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Bus Departure</div>
                 </div>
             </div>
@@ -312,6 +343,10 @@
                 <div class="time-slot"><h3>06:00 PM</h3></div>
                 <div class="details-slot">
                     <h4>Arrival</h4>
+                    
+                    " below 
+                         and change 'PLACEHOLDER.jpg' to your file name -->
+                    
                     <div class="location">📍 Ferrara</div>
                 </div>
             </div>
@@ -335,7 +370,7 @@
             evt.currentTarget.className += " active";
         }
 
-        // --- F1 LIGHTS (Runs once) ---
+        // --- F1 LIGHTS ---
         document.addEventListener("DOMContentLoaded", () => {
             const lights = document.querySelectorAll('.light');
             let currentLight = 0;
@@ -352,10 +387,10 @@
                         });
                     }, 800); 
                 }
-            }, 500); // Faster sequence
+            }, 500);
         });
 
-        // --- SIMPLE SCROLL REVEAL (No Blur, Just Slide) ---
+        // --- SIMPLE SCROLL REVEAL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
