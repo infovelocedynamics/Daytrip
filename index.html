@@ -5,276 +5,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maranello Mission Protocol</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;500;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- DESIGNER PALETTE & ASSETS --- */
+        /* --- HIGH CONTRAST PALETTE --- */
         :root {
-            --ferrari-red: #ff2800; /* The iconic bright red */
-            --deep-crimson: #8b0000; /* For depth and shadows */
-            --asphalt-black: #0a0a0a;
-            --carbon-fiber: #1a1a1a;
+            --ferrari-red: #ff2800; 
+            --dark-bg: #121212; /* Solid matte black, no noise */
+            --card-bg: #1e1e1e; /* Slightly lighter for cards */
             --text-white: #ffffff;
-            --text-gray: #b0b0b0;
+            --text-gray: #d0d0d0; /* Lightened for readability */
         }
 
-        /* Carbon fiber pattern overlay */
-        .carbon-texture {
-            background-image: 
-                linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
-                linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
-            background-size: 4px 4px;
-            background-position: 0 0, 2px 2px;
-            opacity: 0.2;
-        }
-
-        /* --- BASE STYLES --- */
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--asphalt-black);
-            background: radial-gradient(circle at top center, var(--deep-crimson) 0%, var(--asphalt-black) 70%);
+            background-color: var(--dark-bg);
             color: var(--text-white);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* --- HEADER & F1 LIGHTS ANIMATION --- */
+        /* --- SIMPLIFIED HEADER --- */
         header {
             text-align: center;
-            padding: 40px 20px;
-            position: relative;
-            overflow: hidden;
+            padding: 30px 20px;
+            background: linear-gradient(to bottom, #000000, var(--dark-bg));
+            border-bottom: 2px solid var(--ferrari-red);
         }
 
+        /* F1 Lights - Kept but made smaller and cleaner */
         .f1-lights-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .light {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: #333;
-            border: 3px solid #111;
-            box-shadow: inset 0 0 10px #000;
-            transition: all 0.1s ease-out;
-        }
-
-        .light.red-on {
-            background-color: var(--ferrari-red);
-            box-shadow: 0 0 20px var(--ferrari-red), inset 0 0 5px var(--ferrari-red);
-        }
-        .light.lights-out {
-            background-color: #000;
-            box-shadow: none;
-        }
-
-        h1 {
-            font-family: 'Teko', sans-serif;
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin: 0;
-            background: linear-gradient(to bottom, #fff, var(--text-gray));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 10px rgba(255, 40, 0, 0.3);
-        }
-
-        .sub-header {
-            font-family: 'Teko', sans-serif;
-            font-size: 1.5rem;
-            color: var(--ferrari-red);
-            letter-spacing: 2px;
-            margin-top: -10px;
-        }
-        
-        .date-badge {
-            background: var(--ferrari-red);
-            color: white;
-            padding: 5px 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-            display: inline-block;
-            transform: skew(-15deg);
-            margin-top: 20px;
-            box-shadow: 5px 5px 0px var(--deep-crimson);
-        }
-
-        /* --- TEACHER TABS (TRACKSIDE LEADERS) --- */
-        .pit-wall-container {
-            max-width: 600px;
-            margin: 30px auto;
-            text-align: center;
-            background: rgba(0,0,0,0.5);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid #333;
-        }
-
-        .pit-wall-title {
-            font-family: 'Teko', sans-serif;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .tabs {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
         }
 
+        .light {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #444;
+            border: 2px solid #222;
+        }
+
+        .light.red-on { background-color: var(--ferrari-red); box-shadow: 0 0 10px var(--ferrari-red); }
+        .light.lights-out { background-color: #000; }
+
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            color: #ffffff; /* Solid White for max contrast */
+            text-shadow: 2px 2px 0px #000; /* Simple shadow to pop off screen */
+            line-height: 1;
+        }
+
+        .sub-header {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.4rem;
+            color: var(--ferrari-red);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        .date-badge {
+            background: #333;
+            color: white;
+            padding: 5px 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            display: inline-block;
+            border-radius: 4px; /* Removed skew for cleaner text */
+            margin-top: 15px;
+            border: 1px solid #555;
+        }
+
+        /* --- TEACHER TABS (Clean & Tappable) --- */
+        .pit-wall-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .pit-wall-title {
+            text-align: center;
+            font-family: 'Teko', sans-serif;
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
         .tab-btn {
-            background: var(--carbon-fiber);
-            color: var(--text-gray);
+            background: #2a2a2a;
+            color: #fff;
             border: 1px solid #444;
-            padding: 10px 20px;
+            padding: 12px 10px;
             font-family: 'Teko', sans-serif;
             font-size: 1.2rem;
             text-transform: uppercase;
             cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s;
+            border-radius: 6px;
             flex: 1;
-        }
-
-        .tab-btn:hover {
-            border-color: var(--ferrari-red);
-            color: white;
         }
 
         .tab-btn.active {
             background: var(--ferrari-red);
-            color: white;
             border-color: var(--ferrari-red);
-            box-shadow: 0 0 10px rgba(255, 40, 0, 0.4);
+            font-weight: bold;
         }
 
         .tab-content {
             display: none;
-            background: rgba(255,255,255,0.05);
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--ferrari-red);
-            text-align: left;
-            animation: fadeIn 0.5s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .tab-content.active {
-            display: block;
-        }
+        .tab-content.active { display: block; animation: simpleFade 0.3s ease-in; }
 
-        .role-title {
-            color: var(--ferrari-red);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- TIMELINE TRACK --- */
+        /* --- TIMELINE (Readable Cards) --- */
         main {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 15px;
             position: relative;
         }
 
         .track-line {
             position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: var(--ferrari-red);
-            box-shadow: 0 0 15px var(--ferrari-red);
+            left: 15px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: #333; /* Darker track line so it's not distracting */
             z-index: 0;
         }
 
         .agenda-item {
             position: relative;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             z-index: 1;
-            opacity: 0;
-            transform: translateX(-50px) skewX(-10deg);
-            filter: blur(5px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* Simple Opacity Transition - NO BLUR */
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
-        .agenda-item.speed-trap-visible {
+        .agenda-item.visible {
             opacity: 1;
-            transform: translateX(0) skewX(0);
-            filter: blur(0);
+            transform: translateY(0);
         }
 
         .card {
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border-left: 6px solid var(--ferrari-red);
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-left: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border-left: 5px solid var(--ferrari-red);
+            padding: 20px;
+            margin-left: 25px; /* Space for the track line */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        .card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255, 40, 0, 0.2);
+        .time-slot h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.8rem;
+            color: var(--ferrari-red);
+            margin: 0;
         }
 
-        .time-slot { flex-basis: 30%; }
-        .time-slot h3 { font-family: 'Teko', sans-serif; font-size: 2rem; color: var(--ferrari-red); margin: 0; line-height: 1; }
-        .details-slot { flex-basis: 70%; padding-left: 25px; border-left: 1px solid rgba(255, 40, 0, 0.2); }
-        .details-slot h4 { font-size: 1.2rem; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
-        .location { display: flex; align-items: center; color: var(--text-gray); font-size: 0.9rem; }
-        .location::before { content: '📍'; margin-right: 8px; filter: grayscale(100%); }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .track-line { left: 0px; }
-            .agenda-item { margin-left: 10px; }
-            .card { flex-direction: column; align-items: flex-start; margin-left: 15px; padding: 20px; }
-            .time-slot { margin-bottom: 15px; flex-basis: auto; }
-            .details-slot { padding-left: 0; border-left: none; flex-basis: auto; }
+        .details-slot h4 {
+            font-size: 1.1rem;
+            margin: 5px 0 8px 0;
+            color: #fff;
+            text-transform: uppercase;
         }
+
+        .details-slot p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+
+        .location {
+            color: #888;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        @keyframes simpleFade { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
-<body class="carbon-texture">
+<body>
 
     <header>
         <div class="f1-lights-container">
-            <div class="light"></div>
-            <div class="light"></div>
-            <div class="light"></div>
-            <div class="light"></div>
-            <div class="light"></div>
+            <div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div><div class="light"></div>
         </div>
 
         <h1>Italian Adventure</h1>
-        <div class="sub-header">Maranello & Modena Diploma Programme</div>
-        <div class="date-badge">Friday, November 21st, 2025</div>
+        <div class="sub-header">Maranello & Modena Trip</div>
+        <div class="date-badge">Nov 21, 2025</div>
     </header>
 
     <section class="pit-wall-container">
-        <div class="pit-wall-title">🏎️ Trackside Stewards</div>
+        <div class="pit-wall-title">Trackside Stewards</div>
         
         <div class="tabs">
             <button class="tab-btn active" onclick="openTab(event, 'Arun')">ARUN</button>
@@ -283,21 +233,21 @@
         </div>
 
         <div id="Arun" class="tab-content active">
-            <div class="role-title">Race Director (Group Leader)</div>
-            <h3>Mr. Arun</h3>
-            <p><strong>Status: On-Site</strong><br>Mr. Arun is managing the master schedule. Please check in with him before getting on/off the bus and for all headcounts.</p>
+            <h3 style="margin:0; color:white;">Mr. Arun</h3>
+            <p style="color:var(--ferrari-red); font-size:0.9rem; font-weight:bold;">Race Director (Logistics)</p>
+            <p style="margin-bottom:0;">Contact for schedule & headcounts.</p>
         </div>
 
         <div id="Eleonora" class="tab-content">
-            <div class="role-title">Driver Welfare (Safety & Support)</div>
-            <h3>Ms. Eleonora</h3>
-            <p><strong>Status: On-Site</strong><br>Ms. Eleonora is supervising student welfare. Find her if you feel unwell, need assistance, or have questions during the museum tours.</p>
+            <h3 style="margin:0; color:white;">Ms. Eleonora</h3>
+            <p style="color:var(--ferrari-red); font-size:0.9rem; font-weight:bold;">Driver Welfare</p>
+            <p style="margin-bottom:0;">Contact for health & safety.</p>
         </div>
 
         <div id="Albert" class="tab-content">
-            <div class="role-title">Technical Delegate (Workshop)</div>
-            <h3>Mr. Albert</h3>
-            <p><strong>Status: On-Site</strong><br>Mr. Albert is leading the Aerodynamics workshop supervision. Stay with his group when entering the Ferrari engineering labs.</p>
+            <h3 style="margin:0; color:white;">Mr. Albert</h3>
+            <p style="color:var(--ferrari-red); font-size:0.9rem; font-weight:bold;">Technical Delegate</p>
+            <p style="margin-bottom:0;">Contact for workshop support.</p>
         </div>
     </section>
 
@@ -308,8 +258,8 @@
             <div class="card">
                 <div class="time-slot"><h3>07:30 AM</h3></div>
                 <div class="details-slot">
-                    <h4>Grid Formation & Departure</h4>
-                    <div class="location">Ferrara, Smiling IS</div>
+                    <h4>Departure</h4>
+                    <div class="location">📍 Ferrara, Smiling IS</div>
                 </div>
             </div>
         </div>
@@ -318,9 +268,9 @@
             <div class="card">
                 <div class="time-slot"><h3>09:45 AM</h3></div>
                 <div class="details-slot">
-                    <h4>The Maranello Experience</h4>
+                    <h4>Maranello Experience</h4>
                     <p>Guided tour and aerodynamics workshop.</p>
-                    <div class="location">Ferrari Museum, Maranello</div>
+                    <div class="location">📍 Ferrari Museum</div>
                 </div>
             </div>
         </div>
@@ -329,9 +279,9 @@
             <div class="card">
                 <div class="time-slot"><h3>01:15 PM</h3></div>
                 <div class="details-slot">
-                    <h4>Pit Stop (Refueling)</h4>
-                    <p>Packed lunch break.</p>
-                    <div class="location">Resistenza Park, Formigine</div>
+                    <h4>Lunch Break</h4>
+                    <p>Packed lunch stop.</p>
+                    <div class="location">📍 Resistenza Park</div>
                 </div>
             </div>
         </div>
@@ -340,9 +290,9 @@
             <div class="card">
                 <div class="time-slot"><h3>02:50 PM</h3></div>
                 <div class="details-slot">
-                    <h4>Tasting & Tradition</h4>
-                    <p>Guided tour and tasting (approx. 1 hour).</p>
-                    <div class="location">Acetaia Giusti, Modena</div>
+                    <h4>Tasting Tour</h4>
+                    <p>Acetaia Giusti traditional tour.</p>
+                    <div class="location">📍 Modena</div>
                 </div>
             </div>
         </div>
@@ -352,7 +302,7 @@
                 <div class="time-slot"><h3>04:00 PM</h3></div>
                 <div class="details-slot">
                     <h4>Return Journey</h4>
-                    <div class="location">Departure for return leg</div>
+                    <div class="location">📍 Bus Departure</div>
                 </div>
             </div>
         </div>
@@ -361,8 +311,8 @@
             <div class="card">
                 <div class="time-slot"><h3>06:00 PM</h3></div>
                 <div class="details-slot">
-                    <h4>Finish Line</h4>
-                    <div class="location">Estimated arrival in Ferrara</div>
+                    <h4>Arrival</h4>
+                    <div class="location">📍 Ferrara</div>
                 </div>
             </div>
         </div>
@@ -370,30 +320,23 @@
     </main>
 
     <script>
-        // --- TAB FUNCTIONALITY ---
+        // --- SIMPLE TABS ---
         function openTab(evt, teacherName) {
-            // Hide all tab content
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active");
             }
-
-            // Remove active class from buttons
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-
-            // Show current tab and add active class to button
             document.getElementById(teacherName).style.display = "block";
             evt.currentTarget.className += " active";
         }
 
-        // --- ANIMATIONS ---
+        // --- F1 LIGHTS (Runs once) ---
         document.addEventListener("DOMContentLoaded", () => {
-            // F1 Lights
             const lights = document.querySelectorAll('.light');
             let currentLight = 0;
             const sequenceInterval = setInterval(() => {
@@ -403,25 +346,24 @@
                 } else {
                     clearInterval(sequenceInterval);
                     setTimeout(() => {
-                        lights.forEach(light => {
-                            light.classList.remove('red-on');
-                            light.classList.add('lights-out');
+                        lights.forEach(l => {
+                            l.classList.remove('red-on');
+                            l.classList.add('lights-out');
                         });
-                    }, 1000); 
+                    }, 800); 
                 }
-            }, 800);
+            }, 500); // Faster sequence
         });
 
-        // Scroll Reveal
-        const observerOptions = { threshold: 0.2 };
+        // --- SIMPLE SCROLL REVEAL (No Blur, Just Slide) ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
-                    entry.target.classList.add('speed-trap-visible');
+                    entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.agenda-item').forEach(item => {
             observer.observe(item);
@@ -430,4 +372,3 @@
 
 </body>
 </html>
-
